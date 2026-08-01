@@ -1,20 +1,202 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://ai.google.dev/static/site-assets/images/share-ais-513315318.png" />
-</div>
+# AI Resume Analyzer & ATS Optimizer
 
-# Run and deploy your AI Studio app
+A lightweight ATS (Applicant Tracking System) Resume Analyzer built with **Python (Flask)** and **Vanilla JavaScript**. Upload your resume in **PDF** or **TXT** format and get an instant ATS score, detected skills, predicted job role, missing skills, and actionable improvement tips.
 
-This contains everything you need to run your app locally.
+---
 
-View your app in AI Studio: https://ai.studio/apps/e852277e-8646-4335-ac65-be642830f08c
+## 🚀 Features
 
-## Run Locally
+* 📄 Upload Resume (.pdf or .txt)
+* ⚡ One-click Resume Analysis
+* 📊 ATS Score Calculation
+* 💼 Automatic Job Role Prediction
+* 🛠️ Skill Detection
+* ❌ Missing Skills Identification
+* 💡 Resume Improvement Suggestions
+* 🎯 Clean & Minimal User Interface
+* 🔥 Fast Flask Backend
+* 🌐 Pure HTML, CSS, and JavaScript (No React)
 
-**Prerequisites:**  Node.js
+---
 
+## 🖼️ Demo
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+> Add screenshots or a demo GIF here.
+
+---
+
+## 📁 Project Structure
+
+```
+AI-Resume-Analyzer/
+│
+├── backend/
+│   ├── app.py
+│   └── requirements.txt
+│
+├── frontend/
+│   ├── index.html
+│   ├── style.css
+│   └── script.js
+│
+└── README.md
+```
+
+---
+
+## 🛠️ Tech Stack
+
+### Backend
+
+* Python 3
+* Flask
+* PyPDF
+* Regular Expressions (Regex)
+
+### Frontend
+
+* HTML5
+* CSS3
+* Vanilla JavaScript
+
+---
+
+## ⚙️ Installation
+
+### 1. Clone Repository
+
+```bash
+git clone https://github.com/mohammedghoused/AI-Resume-Analyzer.git
+cd AI-Resume-Analyzer
+```
+
+### 2. Create Virtual Environment (Recommended)
+
+**Windows**
+
+```bash
+python -m venv venv
+venv\Scripts\activate
+```
+
+**Linux / macOS**
+
+```bash
+python3 -m venv venv
+source venv/bin/activate
+```
+
+### 3. Install Dependencies
+
+```bash
+cd backend
+pip install -r requirements.txt
+```
+
+### 4. Start Flask Server
+
+```bash
+python app.py
+```
+
+The backend will run at:
+
+```
+http://127.0.0.1:5000
+```
+
+### 5. Open the Frontend
+
+Open:
+
+```
+frontend/index.html
+```
+
+in your browser.
+
+---
+
+## 📌 How It Works
+
+1. Upload a Resume (.pdf or .txt)
+2. Click **Analyze Resume**
+3. The application:
+
+   * Extracts resume text
+   * Detects technical and soft skills
+   * Calculates an ATS score
+   * Predicts the most suitable job role
+   * Identifies missing skills
+   * Generates resume improvement tips
+4. Results are displayed instantly.
+
+---
+
+## 📊 JSON Response
+
+```json
+{
+  "ats_score": 82,
+  "detected_role": "Backend Developer",
+  "skills_found": [
+    "Python",
+    "Flask",
+    "SQL"
+  ],
+  "missing_skills": [
+    "Docker",
+    "AWS"
+  ],
+  "resume_strength": "Strong backend-focused resume with relevant technical skills.",
+  "improvement_tips": [
+    "Add measurable achievements.",
+    "Include cloud technologies.",
+    "Highlight impactful projects."
+  ]
+}
+```
+
+---
+
+## 📄 Supported File Types
+
+* PDF (.pdf)
+* Text (.txt)
+
+---
+
+## 🎯 Future Improvements
+
+* DOCX Resume Support
+* Resume Section Analysis
+* Contact Information Extraction
+* Resume Formatting Suggestions
+* Advanced ATS Keyword Matching
+* Resume Download Report
+* Multi-language Resume Support
+
+---
+
+## 🤝 Contributing
+
+Contributions, bug reports, and feature requests are welcome.
+
+1. Fork the repository.
+2. Create a feature branch.
+3. Commit your changes.
+4. Open a Pull Request.
+
+---
+
+## 📜 License
+
+This project is licensed under the MIT License.
+
+---
+
+## 👨‍💻 Author
+
+**Mohammed Ghouse**
+
+GitHub: https://github.com/mohammedghoused
