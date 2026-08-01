@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Minimal ATS Resume Analyzer</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <div class="app-container">
+    <!-- Header -->
+    <header class="app-header">
+      <div class="brand">
+        <div class="brand-icon">ATS</div>
+        <div>
+          <h1>Resume Analyzer</h1>
+          <p class="subtitle">Instant Automated Resume Screening & Skill Gap Analysis</p>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <!-- Upload Card -->
+      <section id="uploadSection" class="card upload-card">
+        <h2>Upload Resume</h2>
+        <p class="section-desc">Upload your resume file (.pdf, .docx, or .txt) to evaluate ATS score, job role fit, and keyword gaps.</p>
+        
+        <form id="analyzerForm" class="upload-form" enctype="multipart/form-data">
+          <div class="file-drop-area" id="fileDropArea">
+            <input type="file" id="resume" name="resume" accept=".pdf,.docx,.txt" required>
+            <div class="file-drop-content">
+              <svg class="upload-icon" xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                <polyline points="17 8 12 3 7 8"></polyline>
+                <line x1="12" y1="3" x2="12" y2="15"></line>
+              </svg>
+              <p class="file-prompt"><span class="highlight">Click to upload</span> or drag and drop</p>
+              <p class="file-hint">PDF, DOCX or TXT files up to 10MB</p>
+              <div id="fileSelectedInfo" class="file-selected-info hidden">
+                Selected: <strong id="selectedFileName">resume.pdf</strong>
+              </div>
+            </div>
+          </div>
+
+          <button type="submit" id="submitBtn" class="btn btn-primary">
+            <span id="btnText">Analyze Resume</span>
+            <div id="btnSpinner" class="spinner hidden"></div>
+          </button>
+        </form>
+      </section>
+
+      <!-- Results Section -->
+      <section id="resultsSection" class="results-section hidden">
+        <!-- Top Summary Bar -->
+        <div class="card result-header-card">
+          <div class="result-top-bar">
+            <div>
+              <span class="badge" id="detectedRoleBadge">Role Detected</span>
+              <h2 id="predictedRole">Software Engineer</h2>
+            </div>
+            <button id="resetBtn" class="btn btn-secondary">Analyze Another Resume</button>
+          </div>
+
+          <!-- Score Row -->
+          <div class="score-overview">
+            <div class="score-circle-container">
+              <div class="score-circle" id="scoreCircle">
+                <span class="score-number" id="scoreValue">0%</span>
+                <span class="score-label">ATS Score</span>
+              </div>
+            </div>
+            <div class="score-details">
+              <div class="progress-bar-container">
+                <div class="progress-bar-label">
+                  <span>ATS Match Benchmark</span>
+                  <span id="strengthValue">Evaluation</span>
+                </div>
+                <div class="progress-track">
+                  <div class="progress-fill" id="progressFill" style="width: 0%;"></div>
+                </div>
+              </div>
+              <p class="recommendation-text" id="recommendationText"></p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Two Column Grid -->
+        <div class="results-grid">
+          <!-- Left Column -->
+          <div class="grid-col">
+            <!-- Strengths & Weaknesses -->
+            <div class="card">
+              <h3>Evaluation Summary</h3>
+              <div class="feedback-group">
+                <h4 class="text-success">Strengths</h4>
+                <ul id="strengthsList" class="feedback-list"></ul>
+              </div>
+              <div class="feedback-group">
+                <h4 class="text-error">Weaknesses</h4>
+                <ul id="weaknessesList" class="feedback-list"></ul>
+              </div>
+            </div>
+
+            <!-- Missing Skills -->
+            <div class="card">
+              <h3>Missing Core Keywords</h3>
+              <p class="card-subtitle">Recommended skills missing for <span id="targetRoleName">target role</span>:</p>
+              <div class="tags-container" id="missingSkillsTags"></div>
+            </div>
+
+            <!-- Improvement Tips -->
+            <div class="card">
+              <h3>Actionable Improvement Tips</h3>
+              <ul id="tipsList" class="tips-list"></ul>
+            </div>
+          </div>
+
+          <!-- Right Column -->
+          <div class="grid-col">
+            <!-- Detected Skills Categorized -->
+            <div class="card">
+              <h3>Detected Technical Skills</h3>
+              <div id="skillsCategoryContainer" class="skills-categories"></div>
+            </div>
+
+            <!-- Resume Sections Summary -->
+            <div class="card">
+              <h3>Extracted Resume Sections</h3>
+              
+              <div class="accordion-item">
+                <div class="accordion-title">Professional Summary</div>
+                <div class="accordion-content" id="extractedSummary"></div>
+              </div>
+
+              <div class="accordion-item">
+                <div class="accordion-title">Experience Highlights</div>
+                <ul class="content-list" id="extractedExperience"></ul>
+              </div>
+
+              <div class="accordion-item">
+                <div class="accordion-title">Project Highlights</div>
+                <ul class="content-list" id="extractedProjects"></ul>
+              </div>
+
+              <div class="accordion-item">
+                <div class="accordion-title">Education & Credentials</div>
+                <ul class="content-list" id="extractedEducation"></ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="app-footer">
+      <p>Minimal ATS Resume Analyzer &bull; Pure Flask & Vanilla JS</p>
+    </footer>
+  </div>
+</body>
+</html>
