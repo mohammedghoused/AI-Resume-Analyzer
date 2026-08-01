@@ -19,11 +19,10 @@ A lightweight ATS (Applicant Tracking System) Resume Analyzer built with **Pytho
 
 ---
 
-## 🖼️ Demo
-
-> Add screenshots or a demo GIF here.
-<img width="1011" height="887" alt="Screenshot 2026-08-01 235812" src="https://github.com/user-attachments/assets/38e95f67-b525-4803-8eb3-ca70f68b9caa" />
+## 🖼️ Home
 <img width="1062" height="629" alt="Screenshot 2026-08-02 000629" src="https://github.com/user-attachments/assets/b13f3506-3e6f-48c9-ba3f-676507f8e8ca" />
+## 🖼️ Demo
+<img width="1011" height="887" alt="Screenshot 2026-08-01 235812" src="https://github.com/user-attachments/assets/38e95f67-b525-4803-8eb3-ca70f68b9caa" />
 
 ---
 
